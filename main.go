@@ -11,8 +11,8 @@ import (
 
 func main() {
 	var jsonStream string = `
-{"Message": "Hello", "Array": [1, 2, 3], "Null": null, "Number": 1.234}
+{"Message": "Hello", "Number": 1.234}
 `
-	output, _ := jsonToGo.Gen(jsonStream, "test")
+	output, _ := jsonToGo.Gen(jsonStream, "taipeiCity")
 	fmt.Println(output)
 }
