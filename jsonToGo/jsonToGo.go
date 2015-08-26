@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-func jsonToGo(jsonStream string, typeName string) string {
+func Gen(jsonStream string, typeName string) (string, error) {
 	typeBody := ""
 	typeName = upperFirstChar(typeName)
 	dec := json.NewDecoder(strings.NewReader(jsonStream))
@@ -23,6 +23,7 @@ func jsonToGo(jsonStream string, typeName string) string {
 		}
 		if err != nil {
 			log.Fatal(err)
+			return "", err
 		}
 		fmt.Printf("%T: %v", t, t)
 		if dec.More() {
@@ -30,5 +31,5 @@ func jsonToGo(jsonStream string, typeName string) string {
 		}
 		fmt.Printf("\n")
 	}
-	return typeName + typeBody
+	return typeName + typeBody, nil
 }

@@ -5,6 +5,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/mingderwang/pepper/jsonToGo"
 )
 
@@ -12,5 +13,6 @@ func main() {
 	var jsonStream string = `
 {"Message": "Hello", "Array": [1, 2, 3], "Null": null, "Number": 1.234}
 `
-	josnToGo.jsonToGo(jsonStream, "test")
+	output, _ := jsonToGo.Gen(jsonStream, "test")
+	fmt.Println(output)
 }
