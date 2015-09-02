@@ -11,7 +11,7 @@ import (
 
 func main() {
 	var jsonStream string = `
-{"Message": "Hello", "Number": 1.234}
+	{"Name": "Ming", "Age": 32, "Address": "Taipei, Taiwan"}
 `
 	output, _ := jsonToGo.Gen(jsonStream, "taipeiCity")
 	fmt.Println(output)
